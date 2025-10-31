@@ -50,6 +50,7 @@ projectsGrid.innerHTML = projects.map((p) => `
     <article class="neo-card p-3 p-md-4 neo-hover project-card h-100 reveal">
       <div class="project-thumb mb-3">
         <img src="${p.image}" class="img-fluid" alt="${p.title}">
+        <span class="project-overlay"></span>
       </div>
       <h5 class="fw-semibold">${p.title}</h5>
       <p class="text-white-50 mb-3">${p.description}</p>

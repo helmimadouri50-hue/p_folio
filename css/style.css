@@ -119,14 +119,62 @@ section { padding: 96px 0; position: relative; }
   opacity: .15;
 }
 
+/* Profile image in hero */
+.profile-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.profile-img {
+  width: clamp(108px, 14vw, 160px);
+  height: clamp(108px, 14vw, 160px);
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,.55), 0 0 0 0 rgba(0,229,255,0);
+  transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+}
+
+.profile-img:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.03);
+  box-shadow: 0 16px 40px rgba(0,0,0,.65), 0 0 0 6px rgba(0,229,255,.06);
+}
+
+/* Inline avatar next to name */
+.name-avatar {
+  width: clamp(40px, 5vw, 64px);
+  height: clamp(40px, 5vw, 64px);
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  box-shadow: 0 6px 16px rgba(0,0,0,.45);
+  transition: transform .3s ease, filter .3s ease;
+}
+
+.name-avatar:hover { transform: translateY(-2px) scale(1.03); filter: brightness(1.03); }
+
 /* Project image hover */
 .project-thumb {
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
 }
 
 .project-thumb img { transition: transform .6s ease; }
 .project-card:hover .project-thumb img { transform: scale(1.05); }
+
+/* Subtle overlay on hover */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(0,229,255,.08), rgba(9,11,15,.0) 70%);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.project-card:hover .project-overlay { opacity: 1; }
 
 /* Footer */
 footer {
@@ -140,6 +188,35 @@ footer {
   color: var(--text);
   border: 1px solid var(--border);
   box-shadow: none;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #25D366;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #001b08;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  z-index: 999;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 576px) {
+  .whatsapp-fab { right: 16px; bottom: 18px; width: 52px; height: 52px; }
 }
 
 /* Utilities */
